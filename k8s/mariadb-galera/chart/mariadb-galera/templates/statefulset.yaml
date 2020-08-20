@@ -170,6 +170,8 @@ spec:
   - metadata:
       name: datadir
       labels: *MariaDBDeploymentLabels
+      annotations:
+        volume.beta.kubernetes.io/storage-class: pd-ssd
     spec:
       resources:
         requests:
