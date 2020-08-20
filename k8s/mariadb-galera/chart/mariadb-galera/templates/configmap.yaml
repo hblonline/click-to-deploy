@@ -29,7 +29,12 @@ data:
     [mysqld]
     port={{ .Values.service.port }}
     ignore_db_dirs=lost+found
-    innodb_log_file_size=50M
+    innodb_log_file_size=512M
+    innodb_buffer_pool_size = 2G
+    innodb_print_all_deadlocks = 1
+    tmp_table_size = 128M
+    max_heap_table_size = 128M
+    max_connections = 500
 
     ssl-ca=/etc/mysql/mariadb.conf.d/certs/ca.crt
     ssl-cert=/etc/mysql/mariadb.conf.d/certs/tls.crt

@@ -1,32 +1,27 @@
 mariadb:
   image:
-    repo: null
-    tag: null
+    repo: marketplace.gcr.io/google/mariadb-galera
+    tag: 10.3
   persistence:
-    size: '32Gi'
-    storageClass: null
-
+    size: '64Gi'
+    storageClass: pd-ssd
 db:
   rootPassword: null
   replicas: 3
 
   # The image and credentials for mysqld_exporter component.
   exporter:
-    image: null
+    image: marketplace.gcr.io/google/mariadb-galera/mysqld-exporter:10.3
     user: mysqld-exporter
     password: null
-
 peerFinder:
-  image: null
-
+  image: marketplace.gcr.io/google/mariadb-galera/peer-finder:10.3
 metrics:
-  image: null
+  image: marketplace.gcr.io/google/mariadb-galera/prometheus-to-sd:10.3
   exporter:
     enabled: false
-
 service:
   port: 3306
-
 tls:
   base64EncodedPrivateKey: null
   base64EncodedCertificate: null
