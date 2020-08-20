@@ -4,7 +4,7 @@ mariadb:
     tag: 10.3
   persistence:
     size: '64Gi'
-    storageClass: faster
+    storageClass: standard
 db:
   rootPassword: null
   replicas: 3
